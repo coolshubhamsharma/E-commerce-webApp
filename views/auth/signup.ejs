@@ -1,0 +1,47 @@
+<% layout('layouts/boilerPlate') %>
+
+<div class="row">
+
+    
+    <div class="col-md-6 mx-auto"> 
+        <h1 class="display-6"> Sign Up</h1>
+
+        <form action="/register" method="POST">
+            <div class="mb-3">
+                <label class="form-label" for="naam">Username:</label>
+                <input class="form-control" type="text" name="username" id="naam" placeholder="Username">
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label" for="email">Email:</label>
+                <input class="form-control" type="email" name="email" id="email" placeholder="Email">
+            </div>
+            
+            <div class="mb-3">
+                <p class="mb-2">want to register as a?</p>
+                <div class="mx-2">
+                    <label for="buyer" class="form-label">Buyer:</label>
+                    <input type="radio" class="form-check-input" name="role" id="buyer" value="buyer">
+                </div>
+                
+                <div class="mx-2">
+                    <label for="seller" class="form-label">Seller:</label>
+                    <input type="radio" class="form-check-input" name="role" id="seller" value="seller">
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label" for="passwd">Password:</label>
+                <input class="form-control" type="password" name="password" id="passwd" placeholder="Password">
+            </div>
+
+            <button type="submit" class="btn btn-sm btn-success">Sign Up</button>
+            <p class="fw-light mt-2">already have an account <a href="/login">login</a></p>
+        </form>
+
+    </div>
+    
+</div>
+
+</body>
+</html>

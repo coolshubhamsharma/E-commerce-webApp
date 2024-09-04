@@ -1,0 +1,75 @@
+<% layout('layouts/boilerPlate') %>
+
+<%- include('../partials/navbar') %>
+
+
+<section class="container mt-5">
+
+  <% if(success && success.length){ %>
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        
+          <%= success %>
+        
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+       </div>
+       <% } %>
+
+       <% if(error && error.length){ %>
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            
+              <%= error %>
+            
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+           </div>
+           <% } %>
+
+
+    <h1 class="display-6 mt-5">My Cart</h1>
+    <div class="row">
+        <div class="col-lg-8">
+
+           <% for(let item of user.cart){ %>
+                <div class="card mx-auto mb-3" style="max-width: 540px;">
+                    <div class="row g-0">
+                      <div class="col-4">
+                        <img src="<%= item.img %>" class="img-fluid rounded-start" alt="...">
+                      </div>
+                      <div class="col-8">
+                        <div class="card-body"  style="display: flex; flex-direction: row;">
+                          <div>
+                            <h5 class="card-title"><%= item.name %></h5>
+                            <p class="card-text"><%= item.desc %> </p>
+                          </div>
+                          <form action="/user/<%= item._id %>/rmcart" method="POST">
+                            <button type="submit" class="btn btn btn-success mx-5">Remove</button>
+                          </form>
+                          <!-- <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p> -->
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+           <% } %>
+           <div class="col-lg-4">
+            <ul class="list-group">
+               <% for(let item of user.cart){ %>
+                    <li class="list-group-item"><span class="fw-bold"><%= item.name %> - </span>$ <%= item.price %></li>
+                <% } %>
+                <li class="list-group-item fw-bold">Total Amount : $ <%= totalAmount %></li>
+            </ul>
+
+            <form action="payment_gateway/payumoney" method="POST">
+                <input class="amount" type="hidden" name="amount" value="<%= totalAmount %>"/>
+                <input class="con" type="hidden" name="phone" value="+91 9910548655" />
+                <input type="hidden" name="service_provider" 
+                 value="payu_paisa"/>
+                <input type="hidden" class="product" name="productinfo" 
+                 value="<%= productInfo %>"/>
+                 
+                <button type="submit" class="btn btn-sm btn-success my-3">Checkout</button>
+                 <!-- <input type="submit" value="Pay"/> -->
+                </form> 
+
+           </div>
+        </div>
+    </div>
+</section>

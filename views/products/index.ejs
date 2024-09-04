@@ -1,0 +1,91 @@
+<% layout('layouts/boilerPlate') %>
+
+<%- include('../partials/navbar') %>
+
+
+
+<div class="row mt-5" >
+
+  <% if(success && success.length){ %>
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        
+          <%= success %>
+        
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+       </div>
+       <% } %>
+
+       <% if(error && error.length){ %>
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            
+              <%= error %>
+            
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+           </div>
+           <% } %>
+
+  
+
+    <% for(let item of products){ %>
+
+
+  <div class="col-lg-4 mt-2 mb-3">   
+    <div class="card shadow mx-auto mt-4" style="width: 18rem;">
+        <div class="container mt-2 position-relative" style="height: 200;">
+          <img src="<%= item.img %>" class="card-img-top img-fluid" style="height: 200px; border-radius: 5px;" alt="...">
+          <span class="badge rounded-pill bg-light text-dark w-25 position-absolute translate-middle-y" style="top:90%; left:5%"><%= item.avgRating %> &star; | <%= item.reviews.length %></span>
+        </div>
+        
+        <div class="card-body">
+          <h3 class="card-title"><%= item.name %></h3>
+
+          <!-- adding like functionality -->
+          <span class="btn like-btn " product-id="<%= item._id %>">
+            <% if(currentUser && currentUser.wishList.includes(item._id)){ %>
+              <i class="fas fa-heart"></i>
+            <% }else{ %>
+              <i class="far fa-heart"></i>
+            <% } %>
+          </span>
+          <!-- ...................... -->
+
+          <h5 class="card-title">$<%= item.price %></h5>
+          <div class="overflow-auto" style="height: 60px;">
+            <p class="card-text"><%= item.desc %></p>
+          </div>
+
+          <!-- showing no. of reviews -->
+          <% if(item.reviews.length){ %>
+            <p class="text-muted"> <%= item.reviews.length %> reviews</p>
+          <% }else{ %>
+            <p class="text-muted">No reviews</p>
+          <% } %>
+          <a href="/products/<%= item._id %>" class="btn btn-info">view product </a>
+          <!-- .................... -->
+
+          <!-- Showing the delete button only to sellers -->
+          <% if(currentUser && currentUser.role === 'seller'){ %>
+          <form class="d-inline-block" action="/products/<%=item._id%>?_method=DELETE" method="POST">
+            <button class="btn btn-sm btn-danger">Delete</button>
+          </form>
+            <% if(item.author.equals(currentUser._id)){ %>
+              <span style="font-size: small;" ><sub>products@<%= currentUser.username %></sub></span>
+            <% } %>
+          <% } %> 
+          <!-- .................... -->
+
+        </div>
+    </div> 
+  </div>
+
+        <% } %>
+
+</div>
+
+<%- include('../partials/footer') %>
+
+
+<script src="/js/common.js"></script>
+    
+</body>
+</html>
