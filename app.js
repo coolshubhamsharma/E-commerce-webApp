@@ -26,7 +26,8 @@ const payment = require('./routes/payment');
 
 
 
-const dbURL = process.env.dbURL || 'mongodb://127.0.0.1:27017/shopping-shubham-app';
+const dbURL = process.env.dbURL || mongodb+srv://coolshubhamsharma26:oNF98wXvUsCS3m6s@cluster0.4yc91.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+;
 
 mongoose.connect(dbURL)
 .then(()=>{
