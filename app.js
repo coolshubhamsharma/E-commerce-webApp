@@ -102,6 +102,6 @@ app.get('/' , (req,res)=>{ //landing page
 
 
 
-app.listen(8080 , ()=>{
+app.listen(10000 , ()=>{
     console.log('server started at port 8080')
 })
