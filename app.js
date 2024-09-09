@@ -15,7 +15,7 @@ const passport = require('passport');
 const localStrategy = require('passport-local');
 const User = require('./models/User');
 
-
+ 
 
 const productRoutes = require('./routes/product');
 const reviewRoutes = require('./routes/review');
@@ -104,5 +104,5 @@ app.get('/' , (req,res)=>{ //landing page
 
 
 app.listen(8080 , ()=>{
-    console.log('server started at port 8080')
+    console.log('server started at port 8080');
 })
