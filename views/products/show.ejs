@@ -33,7 +33,7 @@
         <img src="<%= FoundProduct.img %>" class="card-img-top" alt="...">
         <div class="card-body">
           <h3 class="card-title"><%= FoundProduct.name %></h3>
-          <h5 class="card-title"><%= FoundProduct.price %></h5>
+          <h5 class="card-title">$<%= FoundProduct.price %></h5>
           <p class="card-text"><%= FoundProduct.desc %></p>
           <a href="/products" class="btn btn-sm btn-light">Home</a>
 
@@ -92,7 +92,7 @@
           <div class="card-body">
             <h5 class="card-title">Comment:</h5>
             <p class="card-text"><%=review.comment%></p>
-            <p><%= FoundProduct.reviews.length %></p>
+            <!-- <p><%= FoundProduct.reviews.length %></p> -->
             <form action="/products/<%= review._id %>/deleteReview" method="POST">
               <button class="btn btn-primary" type="submit">Delete</button>
             </form>
