@@ -40,15 +40,14 @@
             <div class="d-flex">
               <h3 class="card-title"><%= item.name %></h3>
 
-              <!-- adding like functionality -->
-              <span class="btn like-btn " product-id="<%= item._id %>">
-                <% if(currentUser && currentUser.wishList.includes(item._id)){ %>
-                  <i class="fas fa-heart"></i>
-                <% }else{ %>
-                  <i class="far fa-heart"></i>
-                <% } %>
-              </span>
-            </div>
+          <!-- adding like functionality -->
+          <span class="btn like-btn " product-id="<%= item._id %>">
+            <% if(currentUser && currentUser.wishList.includes(item._id)){ %>
+              <i class="fas fa-heart"></i>
+            <% }else{ %>
+              <i class="far fa-heart"></i>
+            <% } %>
+          </span>
           <!-- ...................... -->
 
           <h5 class="card-title">$<%= item.price %></h5>

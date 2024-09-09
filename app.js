@@ -26,8 +26,7 @@ const payment = require('./routes/payment');
 
 
 
-// const dbURL = process.env.dbURL || 'mongodb://127.0.0.1:27017/shopping-shubham-app';
-const dbURL = process.env.dbURL; //connecting to online mongodb database
+const dbURL = process.env.dbURL || 'mongodb://127.0.0.1:27017/shopping-shubham-app';
 
 mongoose.connect(dbURL)
 .then(()=>{
@@ -104,5 +103,5 @@ app.get('/' , (req,res)=>{ //landing page
 
 
 app.listen(8080 , ()=>{
-    console.log('server started at port 8080');
+    console.log('server started at port 8080')
 })
