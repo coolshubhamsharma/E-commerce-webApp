@@ -89,6 +89,8 @@ app.use(userRoutes);// so that har incoming request par ye route check kare ki k
 app.use(productApi);
 app.use(payment);
 
+
+
 app.get('/' , (req,res)=>{ //landing page
     res.render('home');
 })

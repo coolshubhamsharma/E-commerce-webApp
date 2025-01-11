@@ -52,18 +52,18 @@
            <div class="col-lg-4">
             <ul class="list-group">
                <% for(let item of user.cart){ %>
-                    <li class="list-group-item"><span class="fw-bold"><%= item.name %> - </span>$ <%= item.price %></li>
+                    <li class="list-group-item"><span class="fw-bold"><%= item.name %> - </span><i class="fa-duotone fa-solid fa-indian-rupee-sign"></i> <%= item.price %></li>
                 <% } %>
-                <li class="list-group-item fw-bold">Total Amount : $ <%= totalAmount %></li>
+                <li class="list-group-item fw-bold">Total Amount : <i class="fa-duotone fa-solid fa-indian-rupee-sign"></i> <%= totalAmount %></li>
             </ul>
 
-            <form action="payment_gateway/payumoney" method="POST">
+            <form action="/payment_gateway/payumoney" method="POST">
                 <input class="amount" type="hidden" name="amount" value="<%= totalAmount %>"/>
                 <input class="con" type="hidden" name="phone" value="+91 9910548655" />
                 <input type="hidden" name="service_provider" 
                  value="payu_paisa"/>
                 <input type="hidden" class="product" name="productinfo" 
-                 value="<%= productInfo %>"/>
+                 value="TestProduct"/>
                  
                 <button type="submit" class="btn btn-sm btn-success my-3">Checkout</button>
                  <!-- <input type="submit" value="Pay"/> -->
