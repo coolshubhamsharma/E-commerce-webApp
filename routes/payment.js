@@ -36,7 +36,7 @@ router.post('/payment_gateway/payumoney',isLoggedIn , (req, res) => {
  
     //We have to additionally pass merchant key to API so remember to include it.
     pay.key = process.env.MERCHANT_KEY //store in in different file;
-    pay.surl = 'http://localhost:8080/payment/success';
+    pay.surl = 'http://localhost:8080/payment/success'; //change url according to teh renderd website url
     pay.furl = 'http://localhost:8080/payment/fail';
     pay.hash = hash;
 
