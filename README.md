@@ -1,5 +1,11 @@
 <h1 align="center"><b> E-Commerce Web-App </b></h1> 
 
+<p>Login as a user </p>
+<P>Username:-bob , Password:-123 </p>
+
+<p>Login as a seller </p>
+<P>Username:-shubh , Password:-123 </p>
+
 Link - <a href="https://e-commerce-webapp-84gz.onrender.com"> Link To E-Commerce Web-App</a>
 <br>
 <p align="center">
