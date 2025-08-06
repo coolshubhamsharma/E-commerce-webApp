@@ -41,7 +41,7 @@
           <button class="btn btn-sm btn-info">Add to cart</button>
           </form>
 
-          <a href="#" class="btn btn-sm btn-success">Buy Product</a>
+          <a href="/user/cart" class="btn btn-sm btn-success">Buy Product</a>
 
           <% if(currentUser && currentUser.role === 'seller'){ %>
           <a href="/products/<%=FoundProduct._id%>/edit" class="btn btn-sm btn-dark">Edit</a>
